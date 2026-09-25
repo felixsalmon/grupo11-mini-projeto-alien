@@ -1,29 +1,34 @@
 #include <stdio.h>
- 
-int main(){
-    char str[10000+1];
-    int n, cl, cv, cc, i;
- 
-    scanf("%d%*c", &n);
-    while(n--){
-        scanf("%[^\n]%*c", str);
-        cl = cv = cc = 0;    
-        i = 0;
-        
-        while(str[i] != '\0'){
-            if((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')){
-                cl++;
-                
-                if(str[i]=='A' || str[i]=='E' || str[i]=='I' || str[i]=='O' || str[i]=='U' ||
-                   str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='u'){
-                    cv++;
-                }
-            } 
-            i++; 
-        }
-        
-        cc = cl - cv;
-        printf("Letras = %d\nVogais = %d\nConsoantes = %d\n", cl, cv, cc);
+
+#define N 10000
+
+int calctamanho(const char palavra[]) {
+
+    //char palavra[N];
+    int tamanho = 0;
+
+    while (palavra[tamanho] != '\0') {
+        tamanho++;
     }
+
+    return tamanho;
+}
+
+void inverter(const char palavra[]) {
+    int tamanho = calctamanho(palavra);
+    int i;
+    for(i = tamanho - 1; i >= 0; i--) {
+        printf("%c", palavra[i]);
+    }
+    printf("\n");
+}
+
+int main(){
+    char palavra[N];
+    scanf("%[^\n]%*c", palavra);
+    
+    int tamanho = calctamanho(palavra); //funcao de calcular tamanho da palavra
+    inverter(palavra); //funcao de inverter a palavra
+
     return 0;
 }
