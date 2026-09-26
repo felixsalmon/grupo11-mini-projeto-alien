@@ -3,7 +3,8 @@
 #define N 10000
 
 int calcularTamanho(const char palavra[]) {
-    char palavra[N];
+
+    //char palavra[N];
     int tamanho = 0;
 
     while (palavra[tamanho] != '\0') {
@@ -14,6 +15,7 @@ int calcularTamanho(const char palavra[]) {
 }
 
 int main() {
+    char palavra[N];
 
     scanf("%[^\n]%*c", palavra);
 
